@@ -10,7 +10,7 @@ Authors@R: c(
            role = c("aut", "cre"),
            email = "contact@samabbott.co.uk",
            comment = c(ORCID = "0000-0001-8057-8037")))
-Description: What the package does (one paragraph).
+Description: A model to estimate the time-varying reproduction number of an outbreak directly from numbers of confirmed cases using a delay distribution from onset to confirmation and a serial interval.
 License: MIT + file license
 Encoding: UTF-8
 LazyData: true

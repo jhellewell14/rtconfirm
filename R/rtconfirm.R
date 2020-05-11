@@ -1,8 +1,8 @@
 #' Run the model
 #'
-#' @param String defining country to run model on (default = South Korea)
-#'
-#' @return List of two plots to show model fit
+#' @param country String defining country to run model on (default = South Korea)
+#' @param cut integer for the number of days to shift Rt by confirmation date back by to get Rt by infection date (default = 10 days)
+#' @return List of a plot of observed confirmed cases (black) and estimated infections (red), a plot of the reproduction number by date of infection (blue), and the fit of the stan model object returned as a stan object
 #' @export
 #' @useDynLib rtconfirm, .registration=TRUE
 #' @importFrom NCoVUtils get_ecdc_cases
