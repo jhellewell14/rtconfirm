@@ -1,4 +1,4 @@
-#' Run the model
+#' Run the Rt estimate model
 #'
 #' @param country String defining country to run model on (default = South Korea)
 #' @param cut integer for the number of days to shift Rt by confirmation date back by to get Rt by infection date (default = 10 days)
@@ -85,5 +85,5 @@ run_rtconfirm <- function(country = "South_Korea", cut = 10) {
   ggplot2::ylab("Daily cases by infection/confirmation date")
 
 
- return(list("cases_plot" = p1, "Rt_plot" = p2, "fit" = fit))
+ return(list("cases_plot" = p1, "Rt_plot" = p2, "fit" = fit, "obs" = sk))
 }

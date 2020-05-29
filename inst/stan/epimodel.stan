@@ -154,39 +154,39 @@ model {
 generated quantities {
   vector[t - cut] inf_cases;
   vector[t - cut] inf_R;
-  // vector[(2 * t) - 1] confirmation_interval;
-  // vector[(2 * t) - 1] notification_delay;
-  // vector[(2 * t) - 1] serial_interval;
-  // vector[(2 * t) - 1] notif_incub_conv;
-  // vector[(2 * t) - 1] incubation_period;
-  // vector[(2 * t) - 1] delay_conv;
-  // vector[t] infectiousness_out;
-  // vector[(2 * t) - 1] inf_back_out;
-  // vector[t] inf_back_ups;
-  // vector[t] inf_cases_ups;
-  // vector[t] ups;
-  // int obs_app_out[(2 * t) - 1];
-  // vector[t] old_inf;
+  vector[(2 * t) - 1] confirmation_interval;
+  vector[(2 * t) - 1] notification_delay;
+  vector[(2 * t) - 1] serial_interval;
+  vector[(2 * t) - 1] notif_incub_conv;
+  vector[(2 * t) - 1] incubation_period;
+  vector[(2 * t) - 1] delay_conv;
+  vector[t] infectiousness_out;
+  vector[(2 * t) - 1] inf_back_out;
+  vector[t] inf_back_ups;
+  vector[t] inf_cases_ups;
+  vector[t] ups;
+  int obs_app_out[(2 * t) - 1];
+  vector[t] old_inf;
 
-  // confirmation_interval = ci;
-  // notification_delay = delayvec;
-  // serial_interval = sivec;
-  // notif_incub_conv = inc_conv_delay;
-  // incubation_period = incvec;
-  // infectiousness_out = infectiousness[1:t];
-  // inf_back_out = inf_back;
-  // delay_conv = conv_delay;
-  // obs_app_out = obs_app;
-  // ups = upscaled_inf;
+  confirmation_interval = ci;
+  notification_delay = delayvec;
+  serial_interval = sivec;
+  notif_incub_conv = inc_conv_delay;
+  incubation_period = incvec;
+  infectiousness_out = infectiousness[1:t];
+  inf_back_out = inf_back;
+  delay_conv = conv_delay;
+  obs_app_out = obs_app;
+  ups = upscaled_inf;
 
   // Calculate infectiousness at each timestep
-  // old_inf[1] = 0;
-  // for (s in 2:t){
-  //   old_inf[s] = 0;
-  //   for (i in 1:(s - 1)){
-  //     old_inf[s] += (obs_imported[i] + obs_local[i]) * ci[t + s - i];
-  //   }
-  // }
+  old_inf[1] = 0;
+  for (s in 2:t){
+    old_inf[s] = 0;
+    for (i in 1:(s - 1)){
+      old_inf[s] += (obs_imported[i] + obs_local[i]) * ci[t + s - i];
+    }
+  }
 
 
   for(i in 1:(t - cut)){
